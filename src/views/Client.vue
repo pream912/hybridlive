@@ -23,7 +23,7 @@ export default {
     data: () => ({
         database: firebase.database().ref(),
         yourId: '1001',
-        pc: new RTCPeerConnection({'iceServers': [{'urls': 'turn:68.183.92.240:3478','credential': 'Kumar912','username': 'pream912'}]})
+        pc: new RTCPeerConnection({'iceServers': [{'urls': 'turn:172.105.37.191:3478','credential': 'Kumar912','username': 'pream912'}]})
     }),
 
     methods: {
