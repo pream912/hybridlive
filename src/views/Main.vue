@@ -21,7 +21,7 @@ import firebase from 'firebase/app'
 import 'firebase/database'
 export default {
     data: () => ({
-        database: firebase.database().ref(),
+        database: firebase.database().ref('rtc'),
         yourId: '1001',
         pc: new RTCPeerConnection({'iceServers': [{'urls': 'turn:172.105.37.191:3478','credential': 'Kumar912','username': 'pream912'}]})
     }),
