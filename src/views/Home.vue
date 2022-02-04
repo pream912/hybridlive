@@ -1,7 +1,7 @@
 <template>
     <div width="1920" height="1080">
         <v-row align="center" justify="center">
-            <video height="720" ref="fvdo" autoplay muted playsinline></video>
+            <video height="720" ref="fvdo" autoplay playsinline></video>
         </v-row>
     </div>
 </template>
@@ -18,9 +18,12 @@ export default {
 
     methods: {
         sendMessage(senderId, data) {
-            var msg = this.database.push({ sender: senderId, message: data })
-            console.log(msg);
-            msg.remove()
+            firebase.database().ref('rtc').push({ sender: senderId, message: data })
+            .then((data) => {
+              const key = data.key
+              firebase.database().ref('rtc/'+key).remove()
+            })
+            .catch((err)=> console.log(err.message))
         },
 
         readMessage(data) {

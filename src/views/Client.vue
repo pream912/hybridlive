@@ -28,9 +28,12 @@ export default {
 
     methods: {
         sendMessage(senderId, data) {
-            var msg = this.database.push({ sender: senderId, message: data })
-            console.log(msg);
-            msg.remove()
+            firebase.database().ref('rtc').push({ sender: senderId, message: data })
+            .then((data) => {
+              const key = data.key
+              firebase.database().ref('rtc/'+key).remove()
+            })
+            .catch((err)=> console.log(err.message))
         },
 
         readMessage(data) {
