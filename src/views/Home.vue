@@ -1,8 +1,6 @@
 <template>
-    <div width="1920" height="1080">
-        <v-row align="center" justify="center">
-            <video height="720" ref="fvdo" autoplay playsinline></video>
-        </v-row>
+    <div >
+        <video id="myVideo" ref="fvdo" autoplay></video>
     </div>
 </template>
 
@@ -57,3 +55,13 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    #myVideo {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+    }
+</style>
